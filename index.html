@@ -16,9 +16,10 @@
   h3 { font-size: clamp(16px, 1.8vw, 22px); margin: 18px 0 10px; }
   p, li { font-size: clamp(14px, 1.3vw, 16px); }
   .card { border:1px solid #e6e6e6; border-radius:12px; padding: clamp(12px, 2vw, 20px); margin: 18px 0; background:#fff; }
-  .grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f5f5f5; margin-bottom:6px; font-size: 12px; }
-  .kpi { font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 0; padding: 0; }
+  .kpi-grid > div { display: flex; flex-direction: column; }
+  .kpi-grid dt { margin: 0; display: inline-block; padding: 4px 10px; border-radius: 999px; background: #f5f5f5; font-size: 12px; }
+  .kpi-grid dd { margin: 6px 0 0; font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; }
   .muted { color:#555; }
   figure { margin: 0; }
   img.chart { display:block; max-width: 100%; height: auto; margin: 6px auto; }
@@ -30,11 +31,9 @@
   .footnote { font-size: 12px; color:#666; }
   .hero { padding-top: 8px; }
   @media (max-width: 1024px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
     table.table { min-width: 680px; }
   }
   @media (max-width: 768px) {
-    .grid { grid-template-columns: 1fr; }
     .card { padding: 14px; }
     table.table { min-width: 560px; }
   }
@@ -48,27 +47,27 @@
 </header>
 
 <main class="container">
-  <section class="card hero">
-    <p class="muted">Конфигурация: вы находите клиента в ОАЭ/GCC, удерживаете комиссию и возможный пасс-тру (логистика/пошлины), переводите остаток поставщику в Китае. Версия с адаптивной версткой — под широкоформатные экраны и iPad.</p>
-    <div class="grid">
-      <div>
-        <div class="pill">Ставка комиссии</div>
-        <div class="kpi">20%</div>
-      </div>
-      <div>
-        <div class="pill">Базовый пасс-тру</div>
-        <div class="kpi">10%</div>
-      </div>
-      <div>
-        <div class="pill">Переменные издержки</div>
-        <div class="kpi">5% от комиссии</div>
-      </div>
-      <div>
-        <div class="pill">Курс</div>
-        <div class="kpi">1 USD = 3.6725 AED</div>
-      </div>
-    </div>
-  </section>
+    <section class="card hero">
+      <p class="muted">Конфигурация: вы находите клиента в ОАЭ/GCC, удерживаете комиссию и возможный пасс-тру (логистика/пошлины), переводите остаток поставщику в Китае. Версия с адаптивной версткой — под широкоформатные экраны и iPad.</p>
+      <dl class="kpi-grid">
+        <div>
+          <dt>Ставка комиссии</dt>
+          <dd>20%</dd>
+        </div>
+        <div>
+          <dt>Базовый пасс-тру</dt>
+          <dd>10%</dd>
+        </div>
+        <div>
+          <dt>Переменные издержки</dt>
+          <dd>5% от комиссии</dd>
+        </div>
+        <div>
+          <dt>Курс</dt>
+          <dd>1 USD = 3.6725 AED</dd>
+        </div>
+      </dl>
+    </section>
 
   <section class="card">
     <h2>Экономика сделки $10k (чувствительность по пасс-тру и VAT)</h2>
