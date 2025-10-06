@@ -113,9 +113,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: clamp(16px, 2.6vw, 24px);
-  }
-  .hero-metric {
     margin: 0;
+    padding: 0;
+  }
+  .hero-metrics > .hero-metric {
     background: rgba(255,255,255,0.9);
     padding: clamp(18px, 2.8vw, 26px);
     border-radius: 18px;
@@ -204,24 +205,24 @@
         <h2 class="hero-title">Конфигурация сделки</h2>
         <p class="hero-description">Вы находите клиента в ОАЭ/GCC, удерживаете комиссию и возможный пасс-тру (логистика/пошлины), переводите остаток поставщику в Китае. Версия с адаптивной вёрсткой — под широкоформатные экраны и iPad.</p>
       </header>
-      <div class="hero-metrics" role="list">
-        <dl class="hero-metric" role="group">
+      <dl class="hero-metrics">
+        <div class="hero-metric">
           <dt>Ставка комиссии</dt>
           <dd class="kpi">20%</dd>
-        </dl>
-        <dl class="hero-metric" role="group">
+        </div>
+        <div class="hero-metric">
           <dt>Базовый пасс-тру</dt>
           <dd class="kpi">10%</dd>
-        </dl>
-        <dl class="hero-metric" role="group">
+        </div>
+        <div class="hero-metric">
           <dt>Переменные издержки</dt>
           <dd class="kpi">5% от комиссии</dd>
-        </dl>
-        <dl class="hero-metric" role="group">
+        </div>
+        <div class="hero-metric">
           <dt>Курс</dt>
           <dd class="kpi">1 USD = 3.6725 AED</dd>
-        </dl>
-      </div>
+        </div>
+      </dl>
       <aside class="hero-note" role="note">
         <div class="hero-note-icon" aria-hidden="true"></div>
         <div class="hero-note-copy">
