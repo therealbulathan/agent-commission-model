@@ -8,14 +8,14 @@
 <style>
   :root { --space: min(4vw, 32px); --container: min(1320px, 96vw); }
   html, body { margin:0; padding:0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color:#111; line-height:1.45; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color:#111; line-height:1.45; background: radial-gradient(circle at top left, #f0f4ff 0%, #f9fafc 50%, #ffffff 100%); min-height: 100vh; }
   .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space) var(--space); }
-  header { padding: calc(var(--space)*0.75) var(--space); border-bottom:1px solid #eee; position: sticky; top:0; background:#fff; z-index: 10; }
+  header { padding: calc(var(--space)*0.75) var(--space); border-bottom:1px solid #eee; position: sticky; top:0; background:#fff; z-index: 10; backdrop-filter: blur(12px); }
   h1 { font-size: clamp(20px, 3.2vw, 36px); margin: 0; }
   h2 { font-size: clamp(18px, 2.2vw, 28px); margin: 24px 0 12px; }
   h3 { font-size: clamp(16px, 1.8vw, 22px); margin: 18px 0 10px; }
   p, li { font-size: clamp(14px, 1.3vw, 16px); }
-  .card { border:1px solid #e6e6e6; border-radius:12px; padding: clamp(12px, 2vw, 20px); margin: 18px 0; background:#fff; }
+  .card { border:1px solid rgba(255,255,255,0.6); border-radius:18px; padding: clamp(16px, 3vw, 32px); margin: 20px 0; background: rgba(255,255,255,0.88); box-shadow: 0 20px 40px -24px rgba(43,59,93,0.35); backdrop-filter: blur(18px); }
   .grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
   .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#f5f5f5; margin-bottom:6px; font-size: 12px; }
   .kpi { font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; }
@@ -28,14 +28,71 @@
   .table th:first-child, .table td:first-child { text-align: left; }
   .caption { font-size: 12px; color:#666; margin-top: 4px; }
   .footnote { font-size: 12px; color:#666; }
-  .hero { padding-top: 8px; }
+  .hero { padding: clamp(24px, 4vw, 48px); position: relative; overflow: hidden; border: none; background: linear-gradient(135deg, rgba(64,116,255,0.12) 0%, rgba(255,255,255,0.95) 100%); box-shadow: 0 28px 60px -32px rgba(31,64,153,0.55); color: #0c1b43; }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -120px 40% auto -120px;
+    height: 260px;
+    background: radial-gradient(circle at center, rgba(96,126,255,0.55), rgba(96,126,255,0));
+    opacity: 0.75;
+    pointer-events: none;
+    transform: rotate(-12deg);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    right: -160px;
+    top: -120px;
+    background: radial-gradient(circle at center, rgba(219,236,255,0.9) 0%, rgba(219,236,255,0));
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(12,27,67,0.08);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(12,27,67,0.7);
+    margin-bottom: clamp(16px, 2vw, 24px);
+  }
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+  }
+  .hero-intro h2 { margin: 0 0 12px; font-size: clamp(22px, 3vw, 34px); color: #0c1b43; }
+  .hero-description { font-size: clamp(15px, 1.6vw, 18px); color: rgba(12,27,67,0.76); max-width: 520px; }
+  .hero-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 20px); }
+  .hero-metric {
+    background: rgba(255,255,255,0.92);
+    padding: clamp(14px, 2.8vw, 24px);
+    border-radius: 16px;
+    border: 1px solid rgba(187,201,255,0.35);
+    box-shadow: 0 18px 32px -28px rgba(12, 27, 67, 0.65);
+  }
+  .hero .pill { background: rgba(12,27,67,0.08); color: rgba(12,27,67,0.76); font-size: 13px; margin-bottom: 10px; }
+  .hero .kpi { color: #0a1b3d; font-size: clamp(24px, 3vw, 36px); }
+  .hero .muted { color: rgba(12,27,67,0.62); }
   @media (max-width: 1024px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-layout { grid-template-columns: 1fr; }
+    .hero-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     table.table { min-width: 680px; }
   }
   @media (max-width: 768px) {
-    .grid { grid-template-columns: 1fr; }
-    .card { padding: 14px; }
+    .card { padding: 18px; }
+    .hero { padding: 28px 20px; }
+    .hero-metrics { grid-template-columns: 1fr; }
     table.table { min-width: 560px; }
   }
 </style>
@@ -49,23 +106,29 @@
 
 <main class="container">
   <section class="card hero">
-    <p class="muted">Конфигурация: вы находите клиента в ОАЭ/GCC, удерживаете комиссию и возможный пасс-тру (логистика/пошлины), переводите остаток поставщику в Китае. Версия с адаптивной версткой — под широкоформатные экраны и iPad.</p>
-    <div class="grid">
-      <div>
-        <div class="pill">Ставка комиссии</div>
-        <div class="kpi">20%</div>
+    <div class="hero-badge">Сводка по модели</div>
+    <div class="hero-layout">
+      <div class="hero-intro">
+        <h2>Конфигурация сделки</h2>
+        <p class="muted hero-description">Вы находите клиента в ОАЭ/GCC, удерживаете комиссию и возможный пасс-тру (логистика/пошлины), переводите остаток поставщику в Китае. Версия с адаптивной вёрсткой — под широкоформатные экраны и iPad.</p>
       </div>
-      <div>
-        <div class="pill">Базовый пасс-тру</div>
-        <div class="kpi">10%</div>
-      </div>
-      <div>
-        <div class="pill">Переменные издержки</div>
-        <div class="kpi">5% от комиссии</div>
-      </div>
-      <div>
-        <div class="pill">Курс</div>
-        <div class="kpi">1 USD = 3.6725 AED</div>
+      <div class="hero-metrics">
+        <div class="hero-metric">
+          <div class="pill">Ставка комиссии</div>
+          <div class="kpi">20%</div>
+        </div>
+        <div class="hero-metric">
+          <div class="pill">Базовый пасс-тру</div>
+          <div class="kpi">10%</div>
+        </div>
+        <div class="hero-metric">
+          <div class="pill">Переменные издержки</div>
+          <div class="kpi">5% от комиссии</div>
+        </div>
+        <div class="hero-metric">
+          <div class="pill">Курс</div>
+          <div class="kpi">1 USD = 3.6725 AED</div>
+        </div>
       </div>
     </div>
   </section>
