@@ -6,16 +6,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Агентская модель — GCC корпоративные подарки (Responsive)</title>
 <style>
-  :root { --space: min(4vw, 32px); --container: min(1320px, 96vw); }
+  :root {
+    --space: min(4vw, 32px);
+    --container: min(1320px, 96vw);
+    --surface: rgba(255,255,255,0.94);
+    --surface-border: rgba(32,55,116,0.08);
+  }
   html, body { margin:0; padding:0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color:#111; line-height:1.45; background: linear-gradient(180deg, #f7f9ff 0%, #ffffff 48%); min-height: 100vh; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    color:#111;
+    line-height:1.45;
+    background: linear-gradient(180deg, #f8faff 0%, #ffffff 55%, #f5f7ff 100%);
+    min-height: 100vh;
+  }
   .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space) var(--space); }
   header { padding: calc(var(--space)*0.75) var(--space); border-bottom:1px solid rgba(28,42,87,0.08); position: sticky; top:0; background:rgba(255,255,255,0.92); z-index: 10; backdrop-filter: blur(14px); }
   h1 { font-size: clamp(20px, 3.2vw, 36px); margin: 0; }
   h2 { font-size: clamp(18px, 2.2vw, 28px); margin: 24px 0 12px; }
   h3 { font-size: clamp(16px, 1.8vw, 22px); margin: 18px 0 10px; }
   p, li { font-size: clamp(14px, 1.3vw, 16px); }
-  .card { border:1px solid rgba(32,55,116,0.08); border-radius:20px; padding: clamp(18px, 3.2vw, 34px); margin: 20px 0; background: rgba(255,255,255,0.94); box-shadow: 0 20px 40px -30px rgba(32,55,116,0.22); backdrop-filter: blur(12px); }
+  .card {
+    border:1px solid var(--surface-border);
+    border-radius:20px;
+    padding: clamp(18px, 3.2vw, 34px);
+    margin: 20px 0;
+    background: var(--surface);
+    box-shadow: 0 20px 38px -28px rgba(32,55,116,0.22);
+    backdrop-filter: blur(10px);
+  }
   .kpi { font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; }
   .muted { color:#555; }
   figure { margin: 0; }
@@ -31,24 +50,25 @@
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(55,86,160,0.14);
-    background: radial-gradient(circle at -12% -28%, rgba(90,121,255,0.18), rgba(90,121,255,0)) no-repeat,
-                linear-gradient(150deg, rgba(255,255,255,0.96) 10%, rgba(241,244,255,0.85) 100%);
-    box-shadow: 0 28px 56px -40px rgba(24,42,96,0.35);
+    background: radial-gradient(circle at 82% -35%, rgba(120,146,255,0.18), rgba(120,146,255,0)),
+                radial-gradient(circle at 8% 120%, rgba(87,108,238,0.12), rgba(87,108,238,0)),
+                linear-gradient(145deg, rgba(255,255,255,0.98) 12%, rgba(240,245,255,0.88) 100%);
+    box-shadow: 0 28px 54px -38px rgba(24,42,96,0.36);
     color: #0c1b43;
   }
   .hero::after {
     content: "";
     position: absolute;
-    inset: 18% -38% auto 50%;
-    width: 420px;
-    height: 420px;
-    background: radial-gradient(circle at center, rgba(215,226,255,0.55), rgba(215,226,255,0));
-    opacity: 0.9;
-    transform: translateX(-50%);
+    inset: 12% 6% auto 45%;
+    height: 320px;
+    border-radius: 320px;
+    background: radial-gradient(circle at center, rgba(210,222,255,0.5), rgba(210,222,255,0));
+    opacity: 0.85;
+    transform: translateX(-35%);
     pointer-events: none;
   }
   .hero > * { position: relative; z-index: 1; }
-  .hero-top { display: flex; flex-direction: column; gap: clamp(14px, 2vw, 22px); margin-bottom: clamp(24px, 4vw, 36px); }
+  .hero-top { display: flex; flex-direction: column; gap: clamp(14px, 2vw, 22px); margin-bottom: clamp(20px, 3.4vw, 32px); }
   .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -63,9 +83,12 @@
     color: rgba(12,27,67,0.65);
   }
   .hero-title { margin: 0; font-size: clamp(26px, 3.6vw, 40px); color: #0a1d49; }
-  .hero-description { font-size: clamp(15px, 1.8vw, 19px); color: rgba(12,27,67,0.7); max-width: 540px; margin: 0; }
-  .hero-layout { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 4.6vw, 54px); align-items: start; }
-  .hero-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.8vw, 24px); }
+  .hero-description { font-size: clamp(15px, 1.8vw, 19px); color: rgba(12,27,67,0.72); max-width: 560px; margin: 0; }
+  .hero-data {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 2.8vw, 24px);
+  }
   .hero-metric {
     background: rgba(255,255,255,0.92);
     padding: clamp(16px, 3vw, 26px);
@@ -75,23 +98,34 @@
     display: grid;
     gap: 8px;
   }
-  .hero-meta-note { align-self: stretch; display: flex; align-items: flex-end; }
-  .hero-meta-note .muted { margin: 0; font-size: 14px; line-height: 1.5; }
+  .hero-note {
+    border: 1px dashed rgba(70,102,192,0.4);
+    background: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding: clamp(16px, 2.8vw, 24px);
+    grid-column: 1 / -1;
+  }
+  .hero-note p {
+    margin: 0;
+    color: rgba(12,27,67,0.65);
+    font-size: 14px;
+    line-height: 1.55;
+  }
   .hero-label { font-size: 13px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; color: rgba(12,27,67,0.56); }
   .hero .kpi { color: #0a1b3d; font-size: clamp(24px, 3.1vw, 36px); font-weight: 700; }
   .hero .muted { color: rgba(12,27,67,0.62); font-size: 14px; }
   @media (max-width: 1024px) {
-    .hero-layout { grid-template-columns: 1fr; }
-    .hero-top { margin-bottom: clamp(18px, 3vw, 26px); }
-    .hero-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .hero-meta-note { align-items: flex-start; }
+    .hero-data { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hero-top { margin-bottom: clamp(18px, 3vw, 28px); }
     table.table { min-width: 680px; }
   }
   @media (max-width: 768px) {
     .card { padding: 18px; }
     .hero { padding: 26px 20px; }
-    .hero-metrics { grid-template-columns: 1fr; }
-    .hero-meta-note { margin-top: 8px; }
+    .hero-data { grid-template-columns: 1fr; }
+    .hero-note { padding: 18px; }
     table.table { min-width: 560px; }
   }
 </style>
@@ -110,27 +144,25 @@
       <h2 class="hero-title">Конфигурация сделки</h2>
       <p class="hero-description">Вы находите клиента в ОАЭ/GCC, удерживаете комиссию и возможный пасс-тру (логистика/пошлины), переводите остаток поставщику в Китае. Версия с адаптивной вёрсткой — под широкоформатные экраны и iPad.</p>
     </div>
-    <div class="hero-layout">
-      <div class="hero-metrics">
-        <div class="hero-metric">
-          <span class="hero-label">Ставка комиссии</span>
-          <span class="kpi">20%</span>
-        </div>
-        <div class="hero-metric">
-          <span class="hero-label">Базовый пасс-тру</span>
-          <span class="kpi">10%</span>
-        </div>
-        <div class="hero-metric">
-          <span class="hero-label">Переменные издержки</span>
-          <span class="kpi">5% от комиссии</span>
-        </div>
-        <div class="hero-metric">
-          <span class="hero-label">Курс</span>
-          <span class="kpi">1 USD = 3.6725 AED</span>
-        </div>
+    <div class="hero-data">
+      <div class="hero-metric">
+        <span class="hero-label">Ставка комиссии</span>
+        <span class="kpi">20%</span>
       </div>
-      <div class="hero-meta-note">
-        <p class="muted">Параметры легко адаптировать под конкретного клиента: скорректируйте комиссию, пасс-тру и переменные издержки, чтобы мгновенно обновить расчёты в таблицах ниже.</p>
+      <div class="hero-metric">
+        <span class="hero-label">Базовый пасс-тру</span>
+        <span class="kpi">10%</span>
+      </div>
+      <div class="hero-metric">
+        <span class="hero-label">Переменные издержки</span>
+        <span class="kpi">5% от комиссии</span>
+      </div>
+      <div class="hero-metric">
+        <span class="hero-label">Курс</span>
+        <span class="kpi">1 USD = 3.6725 AED</span>
+      </div>
+      <div class="hero-note">
+        <p>Параметры легко адаптировать под конкретного клиента: скорректируйте комиссию, пасс-тру и переменные издержки, чтобы мгновенно обновить расчёты в таблицах ниже.</p>
       </div>
     </div>
   </section>
