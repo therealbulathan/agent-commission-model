@@ -110,13 +110,12 @@
   .hero-title { margin: 0; font-size: clamp(28px, 3.8vw, 42px); color: var(--hero-tone); }
   .hero-description { font-size: clamp(15px, 1.8vw, 19px); color: rgba(12,27,67,0.72); max-width: 560px; margin: 0; }
   .hero-metrics {
-    margin: 0;
-    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: clamp(16px, 2.6vw, 24px);
   }
   .hero-metric {
+    margin: 0;
     background: rgba(255,255,255,0.9);
     padding: clamp(18px, 2.8vw, 26px);
     border-radius: 18px;
@@ -205,24 +204,24 @@
         <h2 class="hero-title">Конфигурация сделки</h2>
         <p class="hero-description">Вы находите клиента в ОАЭ/GCC, удерживаете комиссию и возможный пасс-тру (логистика/пошлины), переводите остаток поставщику в Китае. Версия с адаптивной вёрсткой — под широкоформатные экраны и iPad.</p>
       </header>
-      <dl class="hero-metrics">
-        <div class="hero-metric">
+      <div class="hero-metrics" role="list">
+        <dl class="hero-metric" role="group">
           <dt>Ставка комиссии</dt>
           <dd class="kpi">20%</dd>
-        </div>
-        <div class="hero-metric">
+        </dl>
+        <dl class="hero-metric" role="group">
           <dt>Базовый пасс-тру</dt>
           <dd class="kpi">10%</dd>
-        </div>
-        <div class="hero-metric">
+        </dl>
+        <dl class="hero-metric" role="group">
           <dt>Переменные издержки</dt>
           <dd class="kpi">5% от комиссии</dd>
-        </div>
-        <div class="hero-metric">
+        </dl>
+        <dl class="hero-metric" role="group">
           <dt>Курс</dt>
           <dd class="kpi">1 USD = 3.6725 AED</dd>
-        </div>
-      </dl>
+        </dl>
+      </div>
       <aside class="hero-note" role="note">
         <div class="hero-note-icon" aria-hidden="true"></div>
         <div class="hero-note-copy">
