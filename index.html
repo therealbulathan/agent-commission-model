@@ -9,33 +9,41 @@
   :root {
     --space: min(4vw, 32px);
     --container: min(1320px, 96vw);
-    --surface: rgba(255,255,255,0.94);
-    --surface-border: rgba(32,55,116,0.08);
-    --shadow-soft: 0 24px 48px -36px rgba(26,43,94,0.45);
-    --hero-border: rgba(76,102,182,0.22);
-    --hero-surface: linear-gradient(160deg, rgba(255,255,255,0.96) 0%, rgba(238,243,255,0.92) 65%, rgba(226,236,255,0.88) 100%);
+    --surface: rgba(255, 255, 255, 0.94);
+    --surface-border: rgba(32, 55, 116, 0.08);
+    --shadow-soft: 0 24px 48px -36px rgba(26, 43, 94, 0.45);
+    --hero-border: rgba(76, 102, 182, 0.22);
+    --hero-surface: linear-gradient(160deg, rgba(255, 255, 255, 0.96) 0%, rgba(238, 243, 255, 0.92) 65%, rgba(226, 236, 255, 0.88) 100%);
     --hero-tone: #0b1d4a;
-    --hero-label: rgba(12,27,67,0.58);
-    --hero-note-bg: rgba(248,250,255,0.88);
-    --hero-note-border: rgba(76,102,182,0.32);
+    --hero-label: rgba(12, 27, 67, 0.58);
+    --hero-note-bg: rgba(248, 250, 255, 0.88);
+    --hero-note-border: rgba(76, 102, 182, 0.32);
   }
-  html, body { margin:0; padding:0; }
+  html, body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    color:#111;
-    line-height:1.45;
+    color: #111;
+    line-height: 1.45;
     background: linear-gradient(180deg, #f8faff 0%, #ffffff 55%, #f5f7ff 100%);
     min-height: 100vh;
   }
   .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--space) var(--space); }
-  header { padding: calc(var(--space)*0.75) var(--space); border-bottom:1px solid rgba(28,42,87,0.08); position: sticky; top:0; background:rgba(255,255,255,0.92); z-index: 10; backdrop-filter: blur(14px); }
+  header {
+    padding: calc(var(--space) * 0.75) var(--space);
+    border-bottom: 1px solid rgba(28, 42, 87, 0.08);
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.92);
+    z-index: 10;
+    backdrop-filter: blur(14px);
+  }
   h1 { font-size: clamp(20px, 3.2vw, 36px); margin: 0; }
   h2 { font-size: clamp(18px, 2.2vw, 28px); margin: 24px 0 12px; }
   h3 { font-size: clamp(16px, 1.8vw, 22px); margin: 18px 0 10px; }
   p, li { font-size: clamp(14px, 1.3vw, 16px); }
   .card {
-    border:1px solid var(--surface-border);
-    border-radius:22px;
+    border: 1px solid var(--surface-border);
+    border-radius: 22px;
     padding: clamp(20px, 3.2vw, 36px);
     margin: 20px 0;
     background: var(--surface);
@@ -43,15 +51,15 @@
     backdrop-filter: blur(10px);
   }
   .kpi { font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; }
-  .muted { color:#555; }
+  .muted { color: #555; }
   figure { margin: 0; }
-  img.chart { display:block; max-width: 100%; height: auto; margin: 6px auto; }
+  img.chart { display: block; max-width: 100%; height: auto; margin: 6px auto; }
   .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 8px 0 16px; }
   table.table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 14px; }
   .table th, .table td { border: 1px solid #eee; padding: 8px; text-align: right; white-space: nowrap; }
   .table th:first-child, .table td:first-child { text-align: left; }
-  .caption { font-size: 12px; color:#666; margin-top: 4px; }
-  .footnote { font-size: 12px; color:#666; }
+  .caption { font-size: 12px; color: #666; margin-top: 4px; }
+  .footnote { font-size: 12px; color: #666; }
   .hero {
     position: relative;
     overflow: hidden;
@@ -71,7 +79,7 @@
     inset: -45% auto auto 62%;
     width: clamp(380px, 48vw, 520px);
     aspect-ratio: 1 / 1;
-    background: radial-gradient(circle at center, rgba(140,162,255,0.25), rgba(140,162,255,0));
+    background: radial-gradient(circle at center, rgba(140, 162, 255, 0.25), rgba(140, 162, 255, 0));
     opacity: 0.85;
     filter: blur(0.5px);
   }
@@ -79,7 +87,7 @@
     inset: auto 4% -36% auto;
     width: clamp(260px, 34vw, 360px);
     aspect-ratio: 1 / 1;
-    background: radial-gradient(circle at center, rgba(94,118,228,0.18), rgba(94,118,228,0));
+    background: radial-gradient(circle at center, rgba(94, 118, 228, 0.18), rgba(94, 118, 228, 0));
     opacity: 0.75;
   }
   .hero-grid {
@@ -100,15 +108,15 @@
     gap: 8px;
     padding: 6px 14px;
     border-radius: 999px;
-    background: rgba(12,27,67,0.06);
+    background: rgba(12, 27, 67, 0.06);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(12,27,67,0.65);
+    color: rgba(12, 27, 67, 0.65);
   }
   .hero-title { margin: 0; font-size: clamp(28px, 3.8vw, 42px); color: var(--hero-tone); }
-  .hero-description { font-size: clamp(15px, 1.8vw, 19px); color: rgba(12,27,67,0.72); max-width: 560px; margin: 0; }
+  .hero-description { font-size: clamp(15px, 1.8vw, 19px); color: rgba(12, 27, 67, 0.72); max-width: 560px; margin: 0; }
   .hero-metrics {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -118,10 +126,10 @@
   }
   .hero-metrics > .hero-metric {
     margin: 0;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: clamp(18px, 2.8vw, 26px);
     border-radius: 18px;
-    border: 1px solid rgba(125,152,230,0.3);
+    border: 1px solid rgba(125, 152, 230, 0.3);
     box-shadow: var(--shadow-soft);
     backdrop-filter: blur(6px);
     display: grid;
@@ -159,15 +167,15 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(70,102,192,0.6), rgba(70,102,192,0));
-    box-shadow: 0 0 0 5px rgba(70,102,192,0.16);
+    background: radial-gradient(circle at center, rgba(70, 102, 192, 0.6), rgba(70, 102, 192, 0));
+    box-shadow: 0 0 0 5px rgba(70, 102, 192, 0.16);
     margin-top: 4px;
   }
   .hero-note-copy { display: grid; gap: 6px; }
-  .hero-note-title { margin: 0; font-size: 14px; font-weight: 600; color: rgba(12,27,67,0.78); }
+  .hero-note-title { margin: 0; font-size: 14px; font-weight: 600; color: rgba(12, 27, 67, 0.78); }
   .hero-note p {
     margin: 0;
-    color: rgba(12,27,67,0.64);
+    color: rgba(12, 27, 67, 0.64);
     font-size: 14px;
     line-height: 1.6;
   }
